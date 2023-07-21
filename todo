@@ -1,6 +1,6 @@
 Bravo (ACCCE) => Arbitrary Cartesi Composability Code Execution
 
-[] encode & decode hex input and output
+[X] encode & decode hex input and output
 [] eval python code
 [] emit a voucher to CALLBACK_FUNCTION_SELECTOR given an address
 [] generic address call
