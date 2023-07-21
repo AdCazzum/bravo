@@ -4,8 +4,8 @@ Bravo (ACCCE) => Arbitrary Cartesi Composability Code Execution
 [X] eval python code
 [X] emit a voucher to CALLBACK_FUNCTION_SELECTOR given an address
 [X] generic address call
-[-] production mode ready
-[-] use the new way to build the cartesi dapp
+[X] production mode ready
+[X] use the new way to build the cartesi dapp
 [] add a contract to be called
 [] get the value of CALLBACK_FUNCTION_SELECTOR
 [] implement in the given contract a standard method to manage the callback
