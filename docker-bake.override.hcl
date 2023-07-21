@@ -1,7 +1,5 @@
 
 target "dapp" {
-  # default context is "."
-  # default dockerfile is "Dockerfile"
 }
 
 variable "TAG" {
@@ -13,13 +11,13 @@ variable "DOCKER_ORGANIZATION" {
 }
 
 target "server" {
-  tags = ["${DOCKER_ORGANIZATION}/dapp:echo-python-${TAG}-server"]
+  tags = ["${DOCKER_ORGANIZATION}/dapp:airst-${TAG}-server"]
 }
 
 target "console" {
-  tags = ["${DOCKER_ORGANIZATION}/dapp:echo-python-${TAG}-console"]
+  tags = ["${DOCKER_ORGANIZATION}/dapp:airst-${TAG}-console"]
 }
 
 target "machine" {
-  tags = ["${DOCKER_ORGANIZATION}/dapp:echo-python-${TAG}-machine"]
+  tags = ["${DOCKER_ORGANIZATION}/dapp:airst-${TAG}-machine"]
 }

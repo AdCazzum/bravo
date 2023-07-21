@@ -1,8 +1,0 @@
-{
-  "fs": {
-    "files": [
-      "compose.py",
-      "entrypoint.sh"
-    ]
-  }
-}
