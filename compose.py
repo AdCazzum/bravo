@@ -19,7 +19,7 @@ from model import Voucher
 from eth_abi import decode, encode
 
 # Function selector to be called during the execution of a voucher that transfers funds,
-# which corresponds to the first 4 bytes of the Keccak256-encoded result of "transfer(address,uint256)"
+# which corresponds to the first 4 bytes of the Keccak256-encoded result of "cartesiCallback(string)"
 CALLBACK_FUNCTION_SELECTOR = b'\xa9\x05\x9c\xbb'
 
 logging.basicConfig(level="INFO")
