@@ -1,0 +1,14 @@
+Bravo (ACCCE) => Arbitrary Cartesi Composability Code Execution
+
+[] encode & decode hex input and output
+[] eval python code
+[] emit a voucher to CALLBACK_FUNCTION_SELECTOR given an address
+[] generic address call
+[] add a contract to be called
+[] get the value of CALLBACK_FUNCTION_SELECTOR
+[] implement in the given contract a standard method to manage the callback
+[] extend the idea (add a database and excute query to retrive data)
+[] name & logo
+[] architecture
+[] presentation
+[] submit
