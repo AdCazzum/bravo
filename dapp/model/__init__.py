@@ -10,6 +10,7 @@
 # CONDITIONS OF ANY KIND, either express or implied. See the License for the
 # specific language governing permissions and limitations under the License.
 
+import json
 from util import hex2str, str2hex
 
 class Output():
@@ -39,7 +40,10 @@ class Voucher(Output):
             destination(str): destination of the contract who will execute the payload
             payload(bytes): an ABI encoded contract function call
     """
-
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__, 
+            sort_keys=True, indent=4)
+            
     def __init__(self, destination: str, payload: bytes):
         self.destination = destination
         hexpayload = "0x" + payload.hex()

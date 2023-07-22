@@ -16,7 +16,7 @@ After building an example as described in the previous section, you can run it i
 
 ```shell
 cd <example>
-docker compose -f ../docker-compose.yml -f ./docker-compose.override.yml up
+docker compose -f ./docker-compose.base.yml -f ./docker-compose.override.yml up
 ```
 
 Allow some time for the infrastructure to be ready.
@@ -32,7 +32,7 @@ rollups-examples-hardhat-1                      | Mined empty block range #32 to
 The environment can be shut down with the following command:
 
 ```shell
-docker compose -f ../docker-compose.yml -f ./docker-compose.override.yml down -v
+docker compose -f ./docker-compose.base.yml -f ./docker-compose.override.yml down -v
 ```
 
 ## Interacting with the application
