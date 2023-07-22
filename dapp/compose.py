@@ -35,7 +35,7 @@ def evalcode(input_string):
     except Exception as e:
         return str(e)
 
-def do_callback(address, result):
+def create_callback_payload(address, result):
     payload = CALLBACK_FUNCTION_SELECTOR + \
             encode(['address', 'string'], [address, result])
 
@@ -62,7 +62,7 @@ def handle_advance(data):
     logger.info(f"Received notice status {response.status_code} body {response.content}")
 
     #emits voucher
-    voucher_class = do_callback(json_input["address"], evaluated_value)
+    voucher_class = create_callback_payload(json_input["address"], evaluated_value)
     logger.info(f"voucher_class {voucher_class}")
     logger.info(f"voucher_class voucher_class.destination {voucher_class.destination}")
     logger.info(f"voucher_class voucher_class.payload {voucher_class.payload}")
