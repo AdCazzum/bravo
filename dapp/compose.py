@@ -66,7 +66,7 @@ def handle_advance(data):
     logger.info(f"voucher_class voucher_class.destination {voucher_class.destination}")
     logger.info(f"voucher_class voucher_class.payload {voucher_class.payload}")
 
-    voucher = {"destination": voucher_class.destination, "payload": voucher_class.payload}
+    voucher = {"address": voucher_class.destination, "payload": voucher_class.payload}
     logger.info(f"Issuing voucher {voucher}")
     response = requests.post(rollup_server + "/voucher", json=voucher)
     logger.info(f"Received voucher status {response.status_code} body {response.content}")
