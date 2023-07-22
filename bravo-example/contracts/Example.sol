@@ -9,7 +9,7 @@ contract Example is IBravoCallee {
 
     event ItWorks(string message);
     
-    function cartesiCallback(string calldata result) override external {
+    function cartesiCallback(string calldata result) override external { //the CartesiVM will use this callback to notify the contract with the evaluated result
         value = result;
         emit ItWorks(result);
     }
@@ -19,7 +19,7 @@ contract Example is IBravoCallee {
         Bravo.eval(
             Bravo.Backend.PYTHON3,
             address(this),
-            "1+1"
+            "sum([x**2 for x in range(10) if x % 2 == 0])" //this is generic python code that the CartesiVM will evaluate, the ouput is 120
         );
     }
 }
