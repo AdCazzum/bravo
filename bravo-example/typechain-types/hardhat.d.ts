@@ -18,9 +18,13 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IInput__factory>;
     getContractFactory(
-      name: "Lock",
+      name: "Bravo",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Lock__factory>;
+    ): Promise<Contracts.Bravo__factory>;
+    getContractFactory(
+      name: "IBravoCallee",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IBravoCallee__factory>;
     getContractFactory(
       name: "Logic",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -32,10 +36,15 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IInput>;
     getContractAt(
-      name: "Lock",
+      name: "Bravo",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.Lock>;
+    ): Promise<Contracts.Bravo>;
+    getContractAt(
+      name: "IBravoCallee",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IBravoCallee>;
     getContractAt(
       name: "Logic",
       address: string | ethers.Addressable,
@@ -47,9 +56,13 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IInput>;
     deployContract(
-      name: "Lock",
+      name: "Bravo",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Lock>;
+    ): Promise<Contracts.Bravo>;
+    deployContract(
+      name: "IBravoCallee",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IBravoCallee>;
     deployContract(
       name: "Logic",
       signerOrOptions?: ethers.Signer | DeployContractOptions
@@ -61,10 +74,15 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IInput>;
     deployContract(
-      name: "Lock",
+      name: "Bravo",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Lock>;
+    ): Promise<Contracts.Bravo>;
+    deployContract(
+      name: "IBravoCallee",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IBravoCallee>;
     deployContract(
       name: "Logic",
       args: any[],

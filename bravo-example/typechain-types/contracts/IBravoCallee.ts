@@ -7,7 +7,6 @@ import type {
   FunctionFragment,
   Result,
   Interface,
-  EventFragment,
   ContractRunner,
   ContractMethod,
   Listener,
@@ -16,50 +15,29 @@ import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
   TypedEventLog,
-  TypedLogDescription,
   TypedListener,
   TypedContractMethod,
 } from "../common";
 
-export interface LogicInterface extends Interface {
-  getFunction(
-    nameOrSignature: "cartesiCallback" | "execute" | "value"
-  ): FunctionFragment;
-
-  getEvent(nameOrSignatureOrTopic: "ItWorks"): EventFragment;
+export interface IBravoCalleeInterface extends Interface {
+  getFunction(nameOrSignature: "cartesiCallback"): FunctionFragment;
 
   encodeFunctionData(
     functionFragment: "cartesiCallback",
     values: [string]
   ): string;
-  encodeFunctionData(functionFragment: "execute", values?: undefined): string;
-  encodeFunctionData(functionFragment: "value", values?: undefined): string;
 
   decodeFunctionResult(
     functionFragment: "cartesiCallback",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "execute", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "value", data: BytesLike): Result;
 }
 
-export namespace ItWorksEvent {
-  export type InputTuple = [message: string];
-  export type OutputTuple = [message: string];
-  export interface OutputObject {
-    message: string;
-  }
-  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
-  export type Filter = TypedDeferredTopicFilter<Event>;
-  export type Log = TypedEventLog<Event>;
-  export type LogDescription = TypedLogDescription<Event>;
-}
-
-export interface Logic extends BaseContract {
-  connect(runner?: ContractRunner | null): Logic;
+export interface IBravoCallee extends BaseContract {
+  connect(runner?: ContractRunner | null): IBravoCallee;
   waitForDeployment(): Promise<this>;
 
-  interface: LogicInterface;
+  interface: IBravoCalleeInterface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
@@ -100,10 +78,6 @@ export interface Logic extends BaseContract {
 
   cartesiCallback: TypedContractMethod<[result: string], [void], "nonpayable">;
 
-  execute: TypedContractMethod<[], [void], "nonpayable">;
-
-  value: TypedContractMethod<[], [string], "view">;
-
   getFunction<T extends ContractMethod = ContractMethod>(
     key: string | FunctionFragment
   ): T;
@@ -111,31 +85,6 @@ export interface Logic extends BaseContract {
   getFunction(
     nameOrSignature: "cartesiCallback"
   ): TypedContractMethod<[result: string], [void], "nonpayable">;
-  getFunction(
-    nameOrSignature: "execute"
-  ): TypedContractMethod<[], [void], "nonpayable">;
-  getFunction(
-    nameOrSignature: "value"
-  ): TypedContractMethod<[], [string], "view">;
 
-  getEvent(
-    key: "ItWorks"
-  ): TypedContractEvent<
-    ItWorksEvent.InputTuple,
-    ItWorksEvent.OutputTuple,
-    ItWorksEvent.OutputObject
-  >;
-
-  filters: {
-    "ItWorks(string)": TypedContractEvent<
-      ItWorksEvent.InputTuple,
-      ItWorksEvent.OutputTuple,
-      ItWorksEvent.OutputObject
-    >;
-    ItWorks: TypedContractEvent<
-      ItWorksEvent.InputTuple,
-      ItWorksEvent.OutputTuple,
-      ItWorksEvent.OutputObject
-    >;
-  };
+  filters: {};
 }

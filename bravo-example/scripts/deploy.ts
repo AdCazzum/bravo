@@ -1,11 +1,22 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const lock = await ethers.deployContract("Logic", [], {});
+  const bravoLib = await hre.ethers.deployContract("Bravo", {});
 
-  console.log(await lock.waitForDeployment());
+  const libDeployment = await bravoLib.waitForDeployment();
 
-  console.log("Deployed");
+  console.log(libDeployment);
+  console.log("Bravo library deployed");
+
+  const contractDeployment = await ethers.deployContract("Logic", [], {
+    libraries: {
+      Bravo: libDeployment.target
+    }
+  });
+
+  console.log(await contractDeployment.waitForDeployment());
+
+  console.log("Contract deployed");
 }
 
 main().catch((error) => {
