@@ -10,11 +10,11 @@ Bravo (ACCCE) => Arbitrary Cartesi Composability Code Execution
 [X] check vouchers from frontend-console (yarn start voucher list)
 [X] production mode ready
 [X] use the new way to build the cartesi dapp
-[] add a contract to be called
+[X] add a contract to be called
 [X] get the value of CALLBACK_FUNCTION_SELECTOR
-[] implement in the given contract a standard method to manage the callback
-[] manage a call from a contract instead of yarn start input send
-[-] trigger the time advance
+[X] implement in the given contract a standard method to manage the callback
+[X] manage a call from a contract instead of yarn start input send
+[X] trigger the time advance (done in the docker compose conf 30s)
 [X] trigger the voucher execution (yarn start voucher execute --id 1)
 [X] change name in docker bake and compose
 [X] name & logo
