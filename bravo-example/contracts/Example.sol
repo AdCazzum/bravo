@@ -19,11 +19,7 @@ contract Example is IBravoCallee {
         Bravo.eval(
             Bravo.Backend.PYTHON3,
             address(this),
-            [
-                "a = 2"
-                "b = 3"
-                "a + b"
-            ]
+            "1+1"
         );
     }
 }
