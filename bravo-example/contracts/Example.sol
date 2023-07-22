@@ -19,7 +19,7 @@ contract Example is IBravoCallee {
         Bravo.eval(
             Bravo.Backend.PYTHON3,
             address(this),
-            "sum([x**2 for x in range(10) if x % 2 == 0])" //this is generic python code that the CartesiVM will evaluate, the ouput is 120
+            "sum([x**2 for x in range(10) if x % 2 == 0])" //this is generic python code that the CartesiVM will evaluate, the ouput is 120 [This one-liner calculates the sum of squares of even numbers from 0 to 9 using list comprehension and the built-in sum function in Python.]
         );
     }
 }
