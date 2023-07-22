@@ -13,6 +13,7 @@ Bravo (ACCCE) => Arbitrary Cartesi Composability Code Execution
 [] manage a call from a contract instead of yarn start input send
 [-] trigger the time advance
 [-] trigger the voucher execution
+[] change name in docker bake and compose
 [X] name & logo
 [] architecture
 [] presentation
