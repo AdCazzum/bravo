@@ -17,6 +17,7 @@ import json
 from util import hex2str, str2hex
 from model import Voucher
 from eth_abi import decode_abi, encode_abi
+from sympy import Symbol, cos
 
 # Function selector to be called during the execution of a voucher that transfers funds,
 # which corresponds to the first 4 bytes of the Keccak256-encoded result of "cartesiCallback(string)"

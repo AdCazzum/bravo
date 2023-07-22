@@ -5,7 +5,6 @@ COPY requirements.txt /opt/cartesi/
 
 RUN apt-get update
 RUN apt-get -y install gcc
-RUN apt-get -y install g++
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir -r /opt/cartesi/requirements.txt
 
