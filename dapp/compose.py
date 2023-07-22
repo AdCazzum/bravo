@@ -14,10 +14,10 @@ from os import environ
 import logging
 import requests
 import json
+import ast
 from util import hex2str, str2hex
 from model import Voucher
 from eth_abi import decode_abi, encode_abi
-from sympy import Symbol, cos
 
 # Function selector to be called during the execution of a voucher that transfers funds,
 # which corresponds to the first 4 bytes of the Keccak256-encoded result of "cartesiCallback(string)"
@@ -28,12 +28,14 @@ logger = logging.getLogger(__name__)
 rollup_server = environ["ROLLUP_HTTP_SERVER_URL"]
 logger.info(f"HTTP rollup_server url is {rollup_server}")
 
-def evalcode(input_string):
-    try:
-        result = eval(input_string)
-        return str(result)
-    except Exception as e:
-        return str(e)
+def evalcode(code):
+    block = ast.parse(code, mode='exec')
+
+    last = ast.Expression(block.body.pop().value)
+
+    _globals, _locals = {}, {}
+    exec(compile(block, '<string>', mode='exec'), _globals, _locals)
+    return eval(compile(last, '<string>', mode='eval'), _globals, _locals)
 
 def create_callback_payload(address, result):
     payload = CALLBACK_FUNCTION_SELECTOR + \
