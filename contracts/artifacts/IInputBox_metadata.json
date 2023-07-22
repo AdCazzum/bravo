@@ -1,0 +1,64 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_input",
+						"type": "bytes"
+					}
+				],
+				"name": "addInput",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Test.sol": "IInputBox"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Test.sol": {
+			"keccak256": "0xb2d0aaed77785830a0613dd5f5110d780a350bd3d3ac50b27a21a25c5dd9ffab",
+			"urls": [
+				"bzz-raw://d7425da6701bbf9f364eb9e3419d632e3698559facb0f6b2c2bd309028b68901",
+				"dweb:/ipfs/QmU4hZpuQANBXvFivSCWH6rSrC2uG1YjbHqMrR4ASda9j4"
+			]
+		}
+	},
+	"version": 1
+}

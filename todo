@@ -15,7 +15,7 @@ Bravo (ACCCE) => Arbitrary Cartesi Composability Code Execution
 [] implement in the given contract a standard method to manage the callback
 [] manage a call from a contract instead of yarn start input send
 [-] trigger the time advance
-[-] trigger the voucher execution
+[X] trigger the voucher execution (yarn start voucher execute --id 1)
 [X] change name in docker bake and compose
 [X] name & logo
 [X] architecture

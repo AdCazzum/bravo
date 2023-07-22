@@ -1,8 +1,7 @@
-pragma solidity =0.8.21;
+pragma solidity =0.8.19;
 
 interface IInputBox {
     function addInput(
-        address _dapp,
         bytes calldata _input
     ) external returns (bytes32);
 }
@@ -18,6 +17,6 @@ contract Test {
     }
 
     function foo() external {
-        IInputBox(cartesiInputFacet).addInput(cartesiDapp, bytes("2+3"));
+        IInputBox(cartesiInputFacet).addInput(bytes('{"address":address(this), "body":"7+2"}'));
     }
 }
