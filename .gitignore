@@ -2,3 +2,8 @@
 venv
 **/__pycache__
 deployments
+node_modules
+bravo-example/artifacts
+bravo-example/contracts/artifacts
+bravo-example/cache
+bravo-example/yarn-error.log

@@ -21,3 +21,6 @@ Bravo (ACCCE) => Arbitrary Cartesi Composability Code Execution
 [X] architecture
 [X] presentation (https://docs.google.com/presentation/d/1laa9j0GIkGGPwkdKkqref5h7FFCkWRJKYSnoTRu98vQ/edit?usp=sharing)
 [] submit
+
+
+💩  yarn hardhat run scripts/deploy.ts --network localhost
