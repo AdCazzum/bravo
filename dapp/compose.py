@@ -37,7 +37,7 @@ def evalcode(input_string):
 
 def create_callback_payload(address, result):
     payload = CALLBACK_FUNCTION_SELECTOR + \
-            encode(['address', 'string'], [address, result])
+            encode(['string'], [result])
 
     logger.info(f"creating voucher to '{address}'")
     return Voucher(address, payload)
