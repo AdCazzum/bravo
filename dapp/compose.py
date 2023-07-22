@@ -44,7 +44,7 @@ def do_callback(address, result):
 
 def handle_advance(data):
     logger.info(f"Received advance request data {data}")
-    logger.info("Adding notice")
+    logger.info("Adding notice:")
 
     json_input = json.loads(hex2str(data["payload"]))
     logger.info(json_input)
@@ -79,6 +79,7 @@ handlers = {
 }
 
 finish = {"status": "accept"}
+rollup_address = None
 
 while True:
     logger.info("Sending finish")
@@ -89,6 +90,13 @@ while True:
     else:
         rollup_request = response.json()
         data = rollup_request["data"]
+
+        if "metadata" in data:
+            metadata = data["metadata"]
+            if metadata["epoch_index"] == 0 and metadata["input_index"] == 0:
+                rollup_address = metadata["msg_sender"]
+                logger.info(f"Captured rollup address: {rollup_address}")
+                continue
         
         handler = handlers[rollup_request["request_type"]]
         finish["status"] = handler(rollup_request["data"])
