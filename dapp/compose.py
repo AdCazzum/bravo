@@ -20,7 +20,7 @@ from eth_abi import decode, encode
 
 # Function selector to be called during the execution of a voucher that transfers funds,
 # which corresponds to the first 4 bytes of the Keccak256-encoded result of "cartesiCallback(string)"
-CALLBACK_FUNCTION_SELECTOR = b'\xef\xe\x99\xd\x94'
+CALLBACK_FUNCTION_SELECTOR = b'\xef\xe9\x9d\x94'
 logging.basicConfig(level="INFO")
 logger = logging.getLogger(__name__)
 
