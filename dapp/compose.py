@@ -35,7 +35,7 @@ def evalcode(code):
 
     _globals, _locals = {}, {}
     exec(compile(block, '<string>', mode='exec'), _globals, _locals)
-    return str(eval(compile(last, '<string>', mode='eval'), _globals, _locals))
+    return eval(compile(last, '<string>', mode='eval'), _globals, _locals)
 
 def create_callback_payload(address, result):
     payload = CALLBACK_FUNCTION_SELECTOR + \
