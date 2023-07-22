@@ -3,21 +3,21 @@ target "dapp" {
 }
 
 variable "TAG" {
-  default = "devel"
+  default = "dev"
 }
 
 variable "DOCKER_ORGANIZATION" {
-  default = "cartesi"
+  default = "ace"
 }
 
 target "server" {
-  tags = ["${DOCKER_ORGANIZATION}/dapp:airst-${TAG}-server"]
+  tags = ["${DOCKER_ORGANIZATION}/dapp:bravo-${TAG}-server"]
 }
 
 target "console" {
-  tags = ["${DOCKER_ORGANIZATION}/dapp:airst-${TAG}-console"]
+  tags = ["${DOCKER_ORGANIZATION}/dapp:bravo-${TAG}-console"]
 }
 
 target "machine" {
-  tags = ["${DOCKER_ORGANIZATION}/dapp:airst-${TAG}-machine"]
+  tags = ["${DOCKER_ORGANIZATION}/dapp:bravo-${TAG}-machine"]
 }
