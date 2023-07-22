@@ -7,3 +7,4 @@ bravo-example/artifacts
 bravo-example/contracts/artifacts
 bravo-example/cache
 bravo-example/yarn-error.log
+.deps
