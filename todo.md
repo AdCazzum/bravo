@@ -19,5 +19,5 @@ Bravo (ACCCE) => Arbitrary Cartesi Composability Code Execution
 [X] change name in docker bake and compose
 [X] name & logo
 [X] architecture
-[] presentation
+[X] presentation (https://docs.google.com/presentation/d/1laa9j0GIkGGPwkdKkqref5h7FFCkWRJKYSnoTRu98vQ/edit?usp=sharing)
 [] submit
