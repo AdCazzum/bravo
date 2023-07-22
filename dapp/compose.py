@@ -39,7 +39,7 @@ def do_callback(address, result):
     payload = CALLBACK_FUNCTION_SELECTOR + \
             encode(['address', 'string'], [address, result])
 
-    logger.info(f"creating voucher to '{address}' with the following result {result}")
+    logger.info(f"creating voucher to '{address}'")
     return Voucher(address, payload)
 
 def handle_advance(data):
@@ -51,11 +51,11 @@ def handle_advance(data):
     logger.info(json_input["address"])
     logger.info(json_input["body"])
 
-    response = evalcode(json_input["body"])
-    logger.info(f"Evaluated response {response}")
+    evaluated_value = evalcode(json_input["body"])
+    logger.info(f"Evaluated response {evaluated_value}")
 
     notice = {"payload": str2hex(json.dumps({
-        "result": response
+        "result": evaluated_value
     }))}
 
     response = requests.post(rollup_server + "/notice", json=notice)

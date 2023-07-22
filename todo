@@ -4,6 +4,9 @@ Bravo (ACCCE) => Arbitrary Cartesi Composability Code Execution
 [X] eval python code
 [X] emit a voucher to CALLBACK_FUNCTION_SELECTOR given an address
 [X] generic address call
+[X] send input from frontend-console (yarn start input send --payload '{"address":"0xF8C694fd58360De278d5fF2276B7130Bfdc0192A", "body":"7+1"}' --address "0xF8C694fd58360De278d5fF2276B7130Bfdc0192A")
+[X] check notice from frontend-console (yarn start notice list)
+[X] check vouchers from frontend-console (yarn start voucher list)
 [-] production mode ready
 [X] use the new way to build the cartesi dapp
 [] add a contract to be called
