@@ -62,7 +62,7 @@ def handle_advance(data):
     logger.info(f"Received notice status {response.status_code} body {response.content}")
 
     #emits voucher
-    voucher = do_callback(json_input["address"], response)
+    voucher = do_callback(json_input["address"], evaluated_value)
     logger.info(f"Issuing voucher {voucher}")
     response = requests.post(rollup_server + "/voucher", json=voucher)
     logger.info(f"Received voucher status {response.status_code} body {response.content}")
