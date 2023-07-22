@@ -73,3 +73,6 @@ curl --data '{"id":1337,"jsonrpc":"2.0","method":"evm_increaseTime","params":[86
 ### Vouchers
 
 https://github.com/cartesi/rollups-examples/tree/main/frontend-console
+
+### Giovanna approves
+<img src="giovanna.gif" width="70%"/>
