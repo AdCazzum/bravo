@@ -16,7 +16,7 @@ import requests
 import json
 from util import hex2str, str2hex
 from model import Voucher
-from eth_abi import decode, encode
+from eth_abi import decode_abi, encode_abi
 
 # Function selector to be called during the execution of a voucher that transfers funds,
 # which corresponds to the first 4 bytes of the Keccak256-encoded result of "cartesiCallback(string)"
@@ -36,7 +36,7 @@ def evalcode(input_string):
 
 def create_callback_payload(address, result):
     payload = CALLBACK_FUNCTION_SELECTOR + \
-            encode(['string'], [result])
+            encode_abi(['string'], [result])
 
     logger.info(f"creating voucher to '{address}'")
     return Voucher(address, payload)
@@ -45,12 +45,15 @@ def handle_advance(data):
     logger.info(f"Received advance request data {data}")
     logger.info("Adding notice:")
 
-    json_input = json.loads(hex2str(data["payload"]))
-    logger.info(json_input)
-    logger.info(json_input["address"])
-    logger.info(json_input["body"])
+    binary = bytes.fromhex(data["payload"][2:])
+    address, body = decode_abi(["address", "string"], binary)
 
-    evaluated_value = evalcode(json_input["body"])
+    # json_input = json.loads(hex2str(data["payload"]))
+    # logger.info(json_input)
+    logger.info(address)
+    logger.info(body)
+
+    evaluated_value = evalcode(body)
     logger.info(f"Evaluated response {evaluated_value}")
 
     notice = {"payload": str2hex(json.dumps({
@@ -61,7 +64,7 @@ def handle_advance(data):
     logger.info(f"Received notice status {response.status_code} body {response.content}")
 
     #emits voucher
-    voucher_class = create_callback_payload(json_input["address"], evaluated_value)
+    voucher_class = create_callback_payload(address, evaluated_value)
     logger.info(f"voucher_class {voucher_class}")
     logger.info(f"voucher_class voucher_class.destination {voucher_class.destination}")
     logger.info(f"voucher_class voucher_class.payload {voucher_class.payload}")
