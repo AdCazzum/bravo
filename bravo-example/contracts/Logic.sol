@@ -1,8 +1,8 @@
 pragma solidity =0.8.19;
 
-import "@cartesi/rollups@0.8.2/contracts/interfaces/IInput.sol";
+import "@cartesi/rollups/contracts/interfaces/IInput.sol";
 
-contract Ace {
+contract Logic {
     address constant cartesiDapp = 0xF8C694fd58360De278d5fF2276B7130Bfdc0192A;
     string public value; 
 
