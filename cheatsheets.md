@@ -18,9 +18,11 @@ remixd -s Projects/paris/rollups-examples/bravo/
 3. Execute the “Execute” function
 
 CHECK THE VOUCHER CREATION
+cd frontend-console
 yarn start voucher list
 
 EXECUTE THE VOUCHER
+cd frontend-console
 yarn start voucher execute --id 1
 
 ** IN REMIX 
