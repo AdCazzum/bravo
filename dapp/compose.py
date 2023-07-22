@@ -39,7 +39,7 @@ def do_callback(address, result):
     payload = CALLBACK_FUNCTION_SELECTOR + \
             encode(['address', 'string'], [address, result])
 
-    logger.info(f"sending callback to '{address}'")
+    logger.info(f"creating voucher to '{address}' with the following result {result}")
     return Voucher(address, payload)
 
 def handle_advance(data):
@@ -58,11 +58,15 @@ def handle_advance(data):
         "result": response
     }))}
 
-    #emits voucher
-    do_callback(json_input["address"], response)
-
     response = requests.post(rollup_server + "/notice", json=notice)
     logger.info(f"Received notice status {response.status_code} body {response.content}")
+
+    #emits voucher
+    voucher = do_callback(json_input["address"], response)
+    logger.info(f"Issuing voucher {voucher}")
+    response = requests.post(rollup_server + "/voucher", json=voucher)
+    logger.info(f"Received voucher status {response.status_code} body {response.content}")
+
     return "accept"
 
 def handle_inspect(data):
