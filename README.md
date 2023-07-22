@@ -1,6 +1,6 @@
 <img src="logo.jpeg" width="70%"/>
 
-# Bravo
+# Bravo  ⌐◨-◨
 
 This example represents a complete project that implement the feature offered by the CartesiVM to execute arbitrary code from a smart contract. This example allows to understand the power of composability whitin Cartesi.
 
