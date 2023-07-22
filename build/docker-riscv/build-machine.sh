@@ -18,7 +18,7 @@ ROLLUP_HTTP_SERVER_PORT=5004
 
 cartesi-machine \
     --assert-rolling-template \
-    --ram-length=512Mi \
+    --ram-length=128Mi \
     --rollup \
     --flash-drive=label:root,filename:dapp.ext2 \
     --ram-image=linux.bin \

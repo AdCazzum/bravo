@@ -3,7 +3,7 @@ pragma solidity =0.8.19;
 import "./BravoLib.sol";
 import "./IBravoCallee.sol";
 
-contract Logic is IBravoCallee {
+contract Example is IBravoCallee {
     address constant cartesiDapp = 0xF8C694fd58360De278d5fF2276B7130Bfdc0192A;
     string public value; 
 

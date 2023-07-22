@@ -8,7 +8,7 @@ async function main() {
   console.log(libDeployment);
   console.log("Bravo library deployed");
 
-  const contractDeployment = await ethers.deployContract("Logic", [], {
+  const contractDeployment = await ethers.deployContract("Example", [], {
     libraries: {
       Bravo: libDeployment.target
     }

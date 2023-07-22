@@ -29,7 +29,7 @@ while [ $# -gt 0 ]; do
 done
 
 cartesi-machine \
-    --ram-length=512Mi \
+    --ram-length=128Mi \
     --rollup \
     --flash-drive=label:root,filename:dapp.ext2 \
     --ram-image=linux.bin \
